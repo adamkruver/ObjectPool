@@ -14,7 +14,10 @@ namespace Sources.Collectors
             return this;
         }
 
-        public void ReturnToPool() =>
+        public void ReturnToPool()
+        {
+            gameObject.SetActive(false);
             _pool.Return(this);
+        }
     }
 }

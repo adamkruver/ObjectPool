@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sources.Collectors;
+using Sources.Crystals;
 using UnityEngine;
 
 public class CommandCenter
@@ -16,14 +17,14 @@ public class CommandCenter
         CollectorsCountChanged?.Invoke(_collectors.Count);
     }
 
-    public void SendCollector(Vector3 position)
+    public void SendCollector(ICrystalView crystal)
     {
         if(_collectors.Count == 0)
             return;
         
         ICollectorView collector = _collectors.Dequeue();
         
-        collector.MoveTo(position);
+        collector.Collect(crystal);
         collector.SetCommandCenter(this);
         CollectorsCountChanged?.Invoke(_collectors.Count);
     }

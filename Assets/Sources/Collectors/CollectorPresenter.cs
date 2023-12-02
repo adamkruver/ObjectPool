@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using Sources.Common;
+using Sources.Crystals;
 using UnityEngine;
 
 namespace Sources.Collectors
@@ -15,10 +16,11 @@ namespace Sources.Collectors
             _collector = collector;
         }
 
-        public async void MoveTo(Vector3 position)
+        public async void Collect(ICrystalView crystal)
         {
-            _collector.SetDestination(position);
+            _collector.SetDestination(crystal.Position);
             await MoveAsync();
+            crystal.Destroy();
             _collector.SetDestination(new Vector3(0,0,0));
             await MoveAsync();
             _collector.CommandCenter.AddCollector(_view);

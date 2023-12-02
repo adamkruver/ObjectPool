@@ -1,4 +1,5 @@
 ﻿
+using Sources.Crystals;
 using UnityEngine;
 
 namespace Sources.Collectors
@@ -7,7 +8,7 @@ namespace Sources.Collectors
     {
         void Destroy();
         void SetPosition(Vector3 position);
-        void MoveTo(Vector3 position);
+        void Collect(ICrystalView crystal);
         Vector3 Position { get; }
         void SetCommandCenter(CommandCenter commandCenter);
     }

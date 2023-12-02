@@ -1,5 +1,6 @@
 ﻿using Sources.CommandCenters;
 using Sources.Common;
+using Sources.Crystals;
 using UnityEngine;
 
 public class CommandCenterPresenter : PresenterBase
@@ -25,7 +26,7 @@ public class CommandCenterPresenter : PresenterBase
         _commandCenter.SendCollector(GetTarget());
     }
 
-    private Vector3 GetTarget()
+    private ICrystalView GetTarget()
     {
         return _view.Targets[Random.Range(0, _view.Targets.Length)];
     }

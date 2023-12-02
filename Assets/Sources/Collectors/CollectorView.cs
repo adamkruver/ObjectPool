@@ -1,4 +1,5 @@
 ﻿using Sources.Common;
+using Sources.Crystals;
 using UnityEngine;
 
 namespace Sources.Collectors
@@ -16,9 +17,9 @@ namespace Sources.Collectors
         public void SetPosition(Vector3 position) => 
             transform.position = position;
 
-        public void MoveTo(Vector3 position)
+        public void Collect(ICrystalView crystal)
         {
-            Presenter.MoveTo(position);
+            Presenter.Collect(crystal);
         }
 
         public Vector3 Position => transform.position;
